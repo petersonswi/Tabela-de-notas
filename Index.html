@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Tabela de Notas do Ensino Médio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #000;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    tbody tr:nth-child(odd) {
+      background-color: #f2f2f2;
+    }
+
+    .baixa-nota {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Tabela de Notas - Ensino Médio</h1>
+
+  <table id="tabela-notas">
+    <thead>
+      <tr>
+        <th>Aluno</th>
+        <th>Matemática</th>
+        <th>Português</th>
+        <th>Física</th>
+        <th>Química</th>
+        <th>Biologia</th>
+        <th>História</th>
+        <th>Geografia</th>
+        <th>Filosofia</th>
+        <th>Sociologia</th>
+        <th>Educação Física</th>
+        <th>Artes</th>
+        <th>Inglês</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Maria</td>
+        <td>7</td>
+        <td>8</td>
+        <td>5</td>
+        <td>6</td>
+        <td>4</td>
+        <td>7</td>
+        <td>6</td>
+        <td>8</td>
+        <td>5</td>
+        <td>9</td>
+        <td>10</td>
+        <td>7</td>
+      </tr>
+      <tr>
+        <td>João</td>
+        <td>6</td>
+        <td>5</td>
+        <td>7</td>
+        <td>6</td>
+        <td>6</td>
+        <td>8</td>
+        <td>7</td>
+        <td>5</td>
+        <td>4</td>
+        <td>10</td>
+        <td>9</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>Ana</td>
+        <td>9</td>
+        <td>9</td>
+        <td>8</td>
+        <td>5</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>9</td>
+        <td>8</td>
+        <td>7</td>
+        <td>10</td>
+        <td>8</td>
+      </tr>
+      <tr>
+        <td>Lucas</td>
+        <td>4</td>
+        <td>6</td>
+        <td>5</td>
+        <td>4</td>
+        <td>5</td>
+        <td>7</td>
+        <td>6</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>6</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    const tabela = document.getElementById("tabela-notas");
+    const linhas = tabela.getElementsByTagName("tr");
+
+    for (let i = 1; i < linhas.length; i++) {
+      const celulas = linhas[i].getElementsByTagName("td");
+      for (let j = 1; j < celulas.length; j++) { // começa do 1 para pular o nome do aluno
+        const nota = parseFloat(celulas[j].innerText);
+        if (nota < 6) {
+          celulas[j].classList.add("baixa-nota");
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
